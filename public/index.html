@@ -17,17 +17,29 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script>
-      class Member{
-        constructor(id,name){
-          this.id = id
-          this.name = name
+      class Users{
+        constructor(name,age){
+          this.username = name;
+          this.myAge = age;
         }
-        show(){
-          return 'My name is: ' + this.name + ' I have id is: ' + this.id
+        age(){
+          const date = new Date;
+          let nowYear = date.getFullYear();
+          return 'Name: ' + this.username + '</br>' + 'Age: ' + (nowYear - this.myAge)
         }
       }
-      const run = new Member('01','Ngoc Phuc')
-      document.write(run.show());
+      class myClass extends Users{
+        constructor(name,age,yourClass){
+          super(name,age);
+          this.class = yourClass;
+        }
+        writeText(){
+          return this.age() + '</br>' + 'Classname: ' + this.class;
+        }
+      }
+      const show = new myClass('Phuc','2002','Infomation Technology');
+      document.write(show.writeText())
     </script>
   </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </html>
